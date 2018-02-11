@@ -1,0 +1,65 @@
+@import "../../tools/common.scss";
+
+.header{
+  height: 65px;
+  background-color: #fff;
+  .content{
+    width: 1024px;
+    height: 65px;
+    margin: 0 auto;
+    div {
+      display: inline-block;
+      height: 65px;
+      line-height:65px;
+      width: 100px;
+      text-align: center;
+    }
+    div.log{
+      width: 200px;
+      text-align: left;
+      img{
+        width: 145px;
+      }
+    }
+    div.name{
+      float: right;
+      text-align: right;
+      width: auto;
+      margin-left: 8px;
+    }
+    div.profilePicture{
+      width: auto;
+      float: right;
+      margin-left: 20px;
+      img{
+        height: 24px;
+      }
+    }
+    div.prompt{
+      width: auto;
+      float: right;
+      position: relative;
+      img{
+        height: 21px;
+      }
+      img.prompt_num{
+        height: 20px;
+        position: absolute;
+        top: 15px;
+        left: 3px;
+      }
+      .num{
+        color: white;
+        position: absolute;
+        bottom: 8px;
+        left: 10px;
+        font-size: 12px;
+      }
+    }
+  }
+}
+
+.body{
+  width: 1024px;
+  margin: 0 auto;
+}
