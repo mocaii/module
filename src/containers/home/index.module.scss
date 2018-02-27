@@ -1,0 +1,39 @@
+//html {
+//  height: 100%;
+//  background-image: -webkit-radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+//  background-image: radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+//  cursor: move;
+//}
+
+body {
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  background-image: -webkit-radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000105 100%);
+  background-image: radial-gradient(ellipse farthest-corner at center top, #000d4d 0%, #000 100%);
+}
+.header{
+  height: 71px;
+  width: 100%;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,.08);
+  line-height: 71px;
+}
+.header_left{
+  float: left;
+}
+.logo{
+  height: 50px;
+  margin-left: 15px;
+}
+.header_left span{
+  margin-left: 10px;
+  font-weight: 700;
+  font-size: 16px;
+  color: #333;
+}
+.form{
+  width: 40%;
+  float: right;
+  margin-top: 15px;
+}
