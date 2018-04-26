@@ -17,7 +17,7 @@ module.exports = function override(config, env) {
 
     //重写antd的less属性
     config = rewireLess.withLoaderOptions({
-        modifyVars: { "@primary-color": "#39ac6a" },
+        modifyVars: { "@primary-color": "#1377FF" },
     })(config, env);
 
     //设置CSS Modules生效

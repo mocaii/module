@@ -39,5 +39,6 @@
       "es6": true,
       "jquery": true
     }
-  }
+  },
+  "proxy": "http://120.79.192.27:60001"
 }

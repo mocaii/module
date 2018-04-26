@@ -1,0 +1,20 @@
+@primary-color: '#1890ff';
+#components-form-demo-normal-login .login-form {
+    max-width: 300px;
+}
+#components-form-demo-normal-login .login-form-forgot {
+    float: right;
+}
+#components-form-demo-normal-login .login-form-button {
+    width: 100%;
+}
+.login-form{
+    max-width: 350px;
+    margin: 150px auto;
+    background-color: rgba(255,255,255,.95);
+    padding: 20px 40px 5px;
+    border-radius: 5px;
+}
+.login-form-button{
+    width: 100%;
+}

@@ -1,0 +1,56 @@
+.wrapper{
+    display: flex;
+}
+.moduleClassify-wrapper{
+    flex: 1;
+    margin: 5px;
+    border-radius: 2px;
+    padding: 20px 20px 20px 70px;
+    background-color: #fff;
+    min-height: 512px;
+}
+.moduleClassify-wrapper .ant-card{
+    display: inline-block;
+    margin-right: 20px;
+    margin-bottom: 20px;
+    background-color: #fafafa;
+}
+.moduleClassify-wrapper .ant-card .ant-card-head{
+    background-color: #fefefe;
+}
+.moduleClassify-wrapper .ant-card:hover{
+    /*margin-top: 1px;*/
+}
+.moduleClassify-wrapper .ant-card p{
+    /*width: 300px;*/
+    height: 21px;
+    overflow: hidden;
+    text-overflow:ellipsis;
+    white-space: nowrap;
+}
+.moduleClassify-condition-wrapper{
+    margin-bottom: 20px;
+}
+.moduleClassify-condition-wrapper .ant-input-affix-wrapper{
+    width: 300px;
+}
+.moduleClassify-condition-wrapper .ant-input-affix-wrapper .ant-input{
+    width: 255px;
+}
+.moduleClassify-wrapper .ant-card .ant-card-extra{
+    cursor: pointer;
+}
+.add-card{
+    width: 300px;
+    display: inline-block;
+    margin-right: 20px;
+    text-align: center;
+}
+.add-card img{
+    vertical-align: super;
+    cursor: pointer;
+}
+.ant-card .anticon-edit{
+    float: right;
+    cursor: pointer;
+}

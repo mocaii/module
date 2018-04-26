@@ -1,0 +1,56 @@
+html{
+    overflow: auto !important;
+}
+body{
+    font-family: "microsoft yahei";
+    overflow: auto !important;
+}
+
+.header-wrapper{
+    height: 60px;
+    background-color: #1377FF;
+    padding: 0 50px;
+}
+.header-wrapper .module-text-pic{
+    height: 60px;
+}
+.header-wrapper .module-pic{
+    height: 30px;
+}
+.header-wrapper .avatar-pic{
+    float: right;
+    position: relative;
+    margin-top: 15px;
+}
+.header-wrapper .avatar-pic img{
+    height: 30px;
+    cursor: pointer;
+}
+.header-wrapper span{
+    color: #fff;
+    margin-right: 10px;
+}
+.user-info-operate{
+    position: absolute;
+    width: 76px;
+    top: 45px;
+    right: -23px;
+    /*padding: 5px 0px;*/
+    background-color: #fff;
+    border-radius: 2px;
+}
+.user-info-operate p{
+    height: 30px;
+    line-height: 30px;
+    margin: 0;
+    cursor: pointer;
+    text-align: center;
+    font-size: 12px;
+}
+.user-info-operate p:hover{
+    color: #1377FF;
+    background-color: #f0f0f0;
+}
+.menuBar{
+    float: left;
+}
