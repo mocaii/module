@@ -29,26 +29,7 @@ class RegistrationForm extends React.Component {
         }
     }
 
-    componentWillMount(){
-        let option = {
-            mobile: this.state.mobile
-        }
 
-        //获取用户信息
-        this.handleAjax("/sysuser/findUserMessage",option,(result) => {
-            console.log(result);
-
-            this.setState ={
-                mobile: this.state.mobile,
-                department: result.object.department,
-                name: result.object.name,
-                userEmail: result.object.userEmail,
-            }
-
-            console.log(this.state)
-
-        },"GET");
-    }
 
 
     handleAjax(url, options, successHandle, requestType){
@@ -76,9 +57,9 @@ class RegistrationForm extends React.Component {
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                //提交用户信息
+                //提交密码
 
-                that.handleAjax("/sysuser/updateUserMessage",values,(result)=>{
+                that.handleAjax("/sysuser/updateUserPassword",values,(result)=>{
                     console.log(result);
                     if(result.success === true){
                         openNotificationWithIcon('success',result.message);
@@ -138,57 +119,22 @@ class RegistrationForm extends React.Component {
             <Form onSubmit={this.handleSubmit}>
                 <FormItem
                     {...formItemLayout}
-                    label="手机号码"
+                    label="原密码"
                 >
-                    {getFieldDecorator('mobile', {
-                        rules: [{ required: true, message: '请输入手机号！' },
-                            {
-                                validator(rule, values, callback){
-                                    var reg = /^1[34578][0-9]{9}$/;
-                                    if(reg.test(values)){
-                                        callback();
-                                    }else{
-                                        callback(`请输入正确的手机号码！`);
-                                    }
-                                }
-                            }],
-                        initialValue: this.state.mobile
+                    {getFieldDecorator('password', {
+                        rules: [{ required: true, message: '请输入原密码！' }],
                     })(
                         <Input  style={{ width: '100%' }} />
                     )}
                 </FormItem>
                 <FormItem
                     {...formItemLayout}
-                    label="用户名"
+                    label="新密码"
                 >
-                    {getFieldDecorator('name', {
-                        rules: [{ required: true, message: '请输入用户名！' }],
-                        initialValue: this.state.name
+                    {getFieldDecorator('newPass', {
+                        rules: [{ required: true, message: '请输入新密码密码！' }],
                     })(
                         <Input  style={{ width: '100%' }} />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="院系"
-                >
-                    {getFieldDecorator('department',{
-                        initialValue: this.state.department
-                    })(
-                        <Input  style={{ width: '100%' }} />
-                    )}
-                </FormItem>
-                <FormItem
-                    {...formItemLayout}
-                    label="E-mail"
-                >
-                    {getFieldDecorator('userEmail', {
-                        rules: [{
-                            type: 'email', message: '请输入有效的邮箱',
-                        }],
-                        initialValue: this.state.userEmail
-                    })(
-                        <Input />
                     )}
                 </FormItem>
 
@@ -202,7 +148,7 @@ class RegistrationForm extends React.Component {
 
 const WrappedRegistrationForm = Form.create()(RegistrationForm);
 
-class UserInfo extends Component{
+class ModifyPassword extends Component{
 
     render(){
         return(
@@ -211,7 +157,7 @@ class UserInfo extends Component{
                 <div className="wrapper">
                     <MenuBar/>
                     <div className="userInfo-wrapper">
-                        <div className="userInfo-title">完善个人信息</div>
+                        <div className="userInfo-title">修改密码</div>
                         <WrappedRegistrationForm />
                     </div>
                 </div>
@@ -222,4 +168,4 @@ class UserInfo extends Component{
     }
 }
 
-export default UserInfo
+export default ModifyPassword

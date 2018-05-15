@@ -2,7 +2,7 @@ import React,{Component} from 'react'
 import Header from '../../common/header'
 import MenuBar from '../../common/menuBar'
 import './index.css'
-import { Card,Icon,Modal,notification,Input,Select, Form  } from 'antd';
+import { Card,Icon,Modal,notification,Input,Select, Form,Button  } from 'antd';
 
 const confirm = Modal.confirm;
 const Search = Input.Search;
@@ -182,7 +182,7 @@ class ModuleClassify extends Component{
             };
             console.log(option)
 
-            this.handleAjax("assortment/findAssortmentDetailByNo",option,(result) => {
+            this.handleAjax("/assortment/findAssortmentDetailByNo",option,(result) => {
                 console.log(result);
                 if(result.success === true){
                     this.setState({
@@ -296,6 +296,7 @@ class ModuleClassify extends Component{
                     <MenuBar/>
                     <div className="moduleClassify-wrapper">
                         <div className="moduleClassify-condition-wrapper">
+                            <Button type="primary" onClick={() => this.showModal('','','')}><Icon type="plus" />添加模板分类</Button>
                             <Select defaultValue="1" style={{ width: 100,marginRight: '10px' }} onChange={(value) => this.handleChange(value)}>
                                 <Option value="1">分类名称</Option>
                                 <Option value="2">分类编号</Option>
@@ -309,20 +310,18 @@ class ModuleClassify extends Component{
                         <div>
                             {this.state.list.map((item,index) => {
                                 return(
-                                    <Card title={item.assortmentName}
-                                          extra={<Icon type="close" onClick={() => this.deleteClassify(item.assortmentNo)} /> }
-                                          style={{ width: 300 }}
-                                          key={item.assortmentNo}
+                                    <Card key={index}
+                                          title={item.assortmentName}
+                                          extra={<Icon type="close" onClick={() => this.deleteClassify(item.assortmentNo)} title="删除"/> }
+                                          style={{ width: '30%' }}
+
                                     >
                                         <p>分类编号：{item.assortmentNo}</p>
                                         <p title={item.remarks}>备注：{item.remarks}</p>
-                                        <Icon type="edit" onClick={() => this.showModal(item.assortmentNo,item.assortmentName,item.remarks)}/>
+                                        <Icon title="编辑" type="edit" onClick={() => this.showModal(item.assortmentNo,item.assortmentName,item.remarks)}/>
                                     </Card>
                                 )
                             })}
-                            <div className="add-card">
-                                <img src="static/image/add.png" alt="" onClick={() => this.showModal('','','')}/>
-                            </div>
                         </div>
                     </div>
                     <CollectionCreateForm

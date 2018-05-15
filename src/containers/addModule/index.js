@@ -2,11 +2,19 @@ import React,{Component} from 'react'
 import Header from '../../common/header'
 import MenuBar from '../../common/menuBar'
 import './index.css'
-import { Form, Input, Icon, Button,Select  } from 'antd';
+import { Form, Input, Icon, Button,Select,notification   } from 'antd';
 
 
 const FormItem = Form.Item;
 const Option = Select.Option;
+
+
+const openNotificationWithIcon = (type,message) => {
+    notification[type]({
+        message: message,
+        description: '',
+    });
+};
 
 let uuid = 0;
 class DynamicFieldSet extends React.Component {
@@ -50,13 +58,18 @@ class DynamicFieldSet extends React.Component {
                 // console.log(fields)
 
                 let option = {
-                    moduleClassify: this.props.moduleClassify,
+                    assortmentNo: this.props.moduleClassify,
                     mobile: this.props.mobile,
                     fields: values.names.join()
                 }
                 console.log(option)
                 this.handleAjax("module/addModule",option,(result) => {
                     console.log(result)
+                    if(result.success === true){
+                        openNotificationWithIcon('success',result.message);
+                    }else{
+                        openNotificationWithIcon('error',result.message)
+                    }
                 },'GET')
             }
         });

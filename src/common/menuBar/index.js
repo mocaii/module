@@ -31,16 +31,14 @@ class MenuBar extends Component {
                     </Menu.Item>
                     <SubMenu key="sub1" title={<span><Icon type="mail" /><span>管理模板</span></span>}>
                         <Menu.Item key="5"><Link to="/moduleList">模板列表</Link></Menu.Item>
-                        <Menu.Item key="6"><Link to="/addModule">添加模板</Link></Menu.Item>
-                        <Menu.Item key="7">Option 7</Menu.Item>
-                        <Menu.Item key="8">Option 8</Menu.Item>
+                        <Menu.Item key="7"><Link to="/moduleData">模板数据</Link></Menu.Item>
                     </SubMenu>
-                    <Menu.Item key="3">
-                        <Link to="/userInfo">
-                            <Icon type="pie-chart" />
-                            <span>用户信息</span>
-                        </Link>
-                    </Menu.Item>
+                    <SubMenu key="sub2" title={<span><Icon type="user" /><span>用户信息</span></span>}>
+                        <Menu.Item key="8"><Link to="/userInfo"><span>完善信息</span></Link>
+                        </Menu.Item>
+                        <Menu.Item key="6"><Link to="/modifyPassword"><span>修改密码</span></Link>
+                        </Menu.Item>
+                    </SubMenu>
                 </Menu>
                 <Button type="primary" onClick={this.toggleCollapsed} style={{ marginBottom: 16 }}>
                     <Icon type={this.state.collapsed ? 'menu-unfold' : 'menu-fold'} />

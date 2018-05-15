@@ -30,12 +30,16 @@
 }
 .moduleClassify-condition-wrapper{
     margin-bottom: 20px;
+    text-align: right;
+}
+.moduleClassify-condition-wrapper .ant-select{
+    margin-left: 10px;
 }
 .moduleClassify-condition-wrapper .ant-input-affix-wrapper{
     width: 300px;
 }
 .moduleClassify-condition-wrapper .ant-input-affix-wrapper .ant-input{
-    width: 255px;
+    width: 300px;
 }
 .moduleClassify-wrapper .ant-card .ant-card-extra{
     cursor: pointer;

@@ -1,0 +1,56 @@
+.wrapper{
+    display: flex;
+}
+.moduleList-wrapper{
+    flex: 1;
+    margin: 5px;
+    border-radius: 2px;
+    padding: 20px 20px 20px 70px;
+    background-color: #fff;
+    min-height: 512px;
+}
+.module-item{
+    padding: 5px 20px;
+    border: 1px solid #e8e8e8;
+}
+.moduleList-wrapper .ant-card{
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+.moduleList-content-header{
+    text-align: right;
+    margin-bottom: 20px;
+}
+.moduleList-content-header .ant-input-search{
+    width: 300px;
+}
+.moduleList-content-header .ant-select{
+    margin-left: 10px;
+}
+.card-bottom{
+    position: absolute;
+    /*width: 100%;*/
+    right: 10px;
+    display: flex;
+    align-items: center;
+}
+.card-bottom .anticon{
+    cursor: pointer;
+    /*display: inline-block;*/
+    margin-left: 10px;
+}
+.moduleList-wrapper .ant-card{
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 0 #e9e9e9;
+}
+.page-wrapper .ant-pagination{
+    text-align: center;
+    margin-top: 80px;
+}
+.upload-wrapper{
+    display: inline-block;
+    float: left;
+    /*width: 200px;*/
+    margin-right: 10px;
+}

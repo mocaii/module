@@ -23,12 +23,12 @@ class Header extends Component{
     }
 
     //退出登录
-    loginOut(){
+    logOut(){
         let that = this
         confirm({
             title: "确定退出登录吗？",
             onOk() {
-                that.handleAjax("sysuser/logout","",(result) => {
+                that.handleAjax("/sysuser/logout","",(result) => {
                     console.log(result);
                     if(result.result === true){
                         window.location.replace("/login");
@@ -65,12 +65,7 @@ class Header extends Component{
                     <img src="static/image/module.png" alt="" className="module-pic"/>
                     <img src="logo.png" alt="" className="module-text-pic"/>
                     <div  className="avatar-pic">
-                        <span>欢迎您</span>
-                        <img src="static/image/avatar.png" alt="" onClick={() => this.showUserInfoOperate()}/>
-                        <div className="user-info-operate" style={{display: this.state.userInfoOperate ? 'block' : 'none'}}>
-                            <p>修改信息</p>
-                            <p onClick={() => this.loginOut()}>退出登录</p>
-                        </div>
+                        <img src="static/image/Logout.png" alt="" onClick={() => this.logOut()}  title="退出登录"/>
                     </div>
                 </div>
             </div>

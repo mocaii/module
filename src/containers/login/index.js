@@ -1,11 +1,9 @@
 import React,{Component} from 'react'
-import { Form, Icon, Input, Button ,Alert  } from 'antd';
+import { Form, Icon, Input, Button ,Modal  } from 'antd';
 import './index.css'
-// import register from "../../registerServiceWorker";
 import { dispatch_func } from '../../modules/login'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-// import ModuleClassify from "../moduleClassify";
 
 const FormItem = Form.Item;
 
@@ -29,15 +27,18 @@ class NormalLoginForm extends React.Component {
                     password: values.password,
                 };
                 console.log(option);
-                this.handleAjax("sysuser/login",option,(result) => {
+                this.handleAjax("/login",option,(result) => {
                     console.log(result);
                     if(result.success === true){
                         document.cookie = values.mobile;
                         window.location.replace("/moduleClassify");
                     }else{
-
+                        Modal.info({
+                            title: result.message,
+                            onOk() {},
+                        });
                     }
-                },"get")
+                },"post")
             }
         });
     };
@@ -111,10 +112,15 @@ class NormalRegisterForm extends React.Component {
                     mobile: values.username,
                     password: values.password,
                 };
-                this.handleAjax("sysuser/register",option,(result) => {
+                this.handleAjax("/sysuser/register",option,(result) => {
                     console.log(result);
                     if(result.success === true){
-                        // window.location.replace("/moduleClassify");
+                        Modal.info({
+                            title: result.message,
+                            onOk() {
+                                window.location.replace("/moduleClassify");
+                            },
+                        });
                     }
                 },"get")
 
@@ -160,7 +166,7 @@ class NormalRegisterForm extends React.Component {
                                         mobile: values
                                     };
                                     console.log("zhengque");
-                                    that.handleAjax("sysuser/getUserMobile",option,(result) => {
+                                    that.handleAjax("/sysuser/getUserMobile",option,(result) => {
                                         console.log(result);
                                         if(result.success === true){
                                             callback();
@@ -241,12 +247,6 @@ class Login extends Component{
                         loginOrRegisterFunc={this.props.loginOrRegisterFunc}
                     />
                 </div>
-                <Alert
-                    message="Error"
-                    description="This is an error message about copywriting."
-                    type="error"
-                    showIcon
-                />
             </div>
         )
     }
